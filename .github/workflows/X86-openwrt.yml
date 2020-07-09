@@ -98,7 +98,7 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    - name: Upload bin directory
+    - name: Upload ipk directory
       uses: actions/upload-artifact@master
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
