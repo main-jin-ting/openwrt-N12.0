@@ -6,4 +6,4 @@
 - N1刷入emmc的相关依赖已编入，只需使用[flippy大神](https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=981406)的打包脚本即可制作镜像。
 - F大的网盘链接：[https://pan.baidu.com/s/1BIjHHfi90Oa7Le91Q8gkOg](https://pan.baidu.com/s/1BIjHHfi90Oa7Le91Q8gkOg)
 提取码：02im
-![xm1](doc/1.png)
+![xm1](doc/2.png)
