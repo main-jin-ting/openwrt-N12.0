@@ -10,7 +10,7 @@ on:
     paths:
       - 'k2p.config'
   schedule:
-    - cron: 0 16 * * 0-6
+    - cron: 0 16 * * 5
 #  watch:
 #    types: started
 
