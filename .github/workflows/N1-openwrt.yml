@@ -59,7 +59,7 @@ jobs:
         # mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile
         # cd ./package
         cd openwrt/package
-        git clone https://github.com/destan19/OpenAppFilter.git
+        git clone https://github.com/destan19/OpenAppFilter.git && https://github.com/mit-ywtm/luci-app-filebrowser.git
         
     - name: Load custom feeds
       run: |
