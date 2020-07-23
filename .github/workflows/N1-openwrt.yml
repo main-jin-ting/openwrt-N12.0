@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Initialization environment
       env:
@@ -59,7 +59,7 @@ jobs:
         # mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile
         # cd ./package
         cd openwrt/package
-        git clone https://github.com/destan19/OpenAppFilter.git && git clone https://github.com/mit-ywtm/luci-app-filebrowser.git
+        git clone https://github.com/destan19/OpenAppFilter.git && git clone https://github.com/mit-ywtm/luci-app-filebrowser.git && git clone https://github.com/mit-ywtm/luci-theme-rosy.git && git clone https://github.com/mit-ywtm/luci-app-serverchan.git
         
     - name: Load custom feeds
       run: |
@@ -111,7 +111,7 @@ jobs:
       run: df -hT
 
     - name: Upload ipk directory
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -127,7 +127,7 @@ jobs:
         echo "::set-output name=status::success"
 
     - name: Upload firmware directory
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
