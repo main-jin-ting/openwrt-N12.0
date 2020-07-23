@@ -7,4 +7,4 @@
 - F大的网盘链接：[https://pan.baidu.com/s/1BIjHHfi90Oa7Le91Q8gkOg](https://pan.baidu.com/s/1BIjHHfi90Oa7Le91Q8gkOg)
 提取码：02im
 ![xm1](doc/2.png)
-![xm2](doc/detail.png)
+![xm2](doc/3.png)
