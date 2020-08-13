@@ -19,6 +19,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: N1.config
+  CONFIG_CSS: cascade.css
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: N1-part2.sh
   SSH_ACTIONS: false
@@ -73,8 +74,15 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+    
+    - name: 修改主题
+      run: |
+        [ -e $CONFIG_CSS ] && mv $CONFIG_CSS openwrt/feeds/jerryk/luci-theme-argon-18.06/htdocs/luci-static/argon/css/cascade.css
+        cd openwrt/feeds/jerryk/luci-theme-argon-18.06/htdocs/luci-static/argon
+        git clone https://github.com/mit-ywtm/background.git
+        rm -rf ./background/.git
 
-    - name: Load custom configuration
+    - name: 导入自定义配置和文件
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
@@ -86,7 +94,7 @@ jobs:
       uses: P3TERX/debugger-action@master
       if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
-    - name: Download package
+    - name: 下载各类文件
       id: package
       run: |
         cd openwrt
@@ -95,7 +103,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile the firmware
+    - name: 编译中。。。
       id: compile
       run: |
         cd openwrt
@@ -110,7 +118,7 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    - name: Upload ipk directory
+    - name: 上传ipk文件
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
@@ -126,21 +134,21 @@ jobs:
         echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
 
-    - name: Upload firmware directory
+    - name: 上传固件
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin/targets/*/*/*.tar.gz
 
-    - name: Upload firmware to cowtransfer
+    - name: 上传固件到奶牛快传
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
 
-    - name: Upload firmware to WeTransfer
+    - name: 上传固件到WeTransfer
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
