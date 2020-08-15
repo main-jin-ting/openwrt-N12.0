@@ -60,7 +60,7 @@ jobs:
         # mkdir -p package/luci-app-dockerman && wget https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/Makefile -O package/luci-app-dockerman/Makefile
         # cd ./package
         cd openwrt/package
-        git clone https://github.com/destan19/OpenAppFilter.git && git clone https://github.com/mit-ywtm/luci-app-filebrowser.git && git clone https://github.com/mit-ywtm/luci-theme-rosy.git && git clone https://github.com/mit-ywtm/luci-app-serverchan.git && git clone https://github.com/jefferymvp/luci-app-koolproxyR
+        git clone https://github.com/destan19/OpenAppFilter.git && git clone https://github.com/mit-ywtm/luci-app-filebrowser.git && git clone https://github.com/mit-ywtm/luci-theme-rosy.git && git clone https://github.com/mit-ywtm/luci-app-serverchan.git && git clone https://github.com/jefferymvp/luci-app-koolproxyR.git
         
     - name: 导入conf文件
       run: |
