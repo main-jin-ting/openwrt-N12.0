@@ -77,7 +77,7 @@ jobs:
     
     - name: 修改主题
       run: |
-        [ -e $CONFIG_CSS ] && mv $CONFIG_CSS openwrt/feeds/jerryk/luci-theme-argon-18.06/htdocs/luci-static/argon/css/cascade.css
+        # [ -e $CONFIG_CSS ] && mv $CONFIG_CSS openwrt/feeds/jerryk/luci-theme-argon-18.06/htdocs/luci-static/argon/css/cascade.css
         cd openwrt/feeds/jerryk/luci-theme-argon-18.06/htdocs/luci-static/argon
         git clone https://github.com/mit-ywtm/background.git
         rm -rf ./background/.git
