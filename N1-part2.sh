@@ -79,6 +79,11 @@ sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwal
 sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/node_subscribe.lua
 sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/rule.lua
 sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/shunt_rules.lua
+sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/client/node_config.lua
+sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/client/node_list.lua
+sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/client/node_subscribe.lua
+sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
+sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/model/cbi/passwall/client/shunt_rules.lua
 sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/view/passwall/app_update/brook_version.htm
 sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/view/passwall/app_update/kcptun_version.htm
 sed -i 's/services/vpn/g' feeds/kenzo/luci-app-passwall/luasrc/view/passwall/app_update/trojan_go_version.htm
