@@ -54,8 +54,6 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        cd openwrt/package
-        git clone https://github.com/destan19/OpenAppFilter.git && git clone https://github.com/mit-ywtm/luci-app-filebrowser.git && git clone https://github.com/mit-ywtm/luci-theme-rosy.git && git clone https://github.com/mit-ywtm/luci-app-serverchan.git && git clone https://github.com/jefferymvp/luci-app-koolproxyR.git && git clone https://github.com/mchome/luci-app-dogcom.git && git clone https://github.com/mchome/openwrt-dogcom.git && git clone https://github.com/jerrykuku/luci-app-ttnode.git
     
     - name: 导入conf文件
       run: |
