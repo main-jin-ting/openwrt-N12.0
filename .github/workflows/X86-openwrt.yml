@@ -41,7 +41,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -67,12 +67,6 @@ jobs:
 
     - name: 安装feeds
       run: cd openwrt && ./scripts/feeds install -a
-      
-    - name: 修改主题
-      run: |
-        cd openwrt/feeds/jerryk/luci-theme-argon-18.06/htdocs/luci-static/argon
-        git clone https://github.com/mit-ywtm/background.git
-        rm -rf ./background/.git
 
     - name: 导入自定义配置和文件
       run: |
