@@ -88,9 +88,10 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download -j8 || make download -j1 V=s
+        make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        make download -j8
         
     - name: 编译中。。。
       id: compile
